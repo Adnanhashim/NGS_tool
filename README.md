@@ -21,3 +21,20 @@ I have created NGS tool to analysis NGS data analyzing RNA-, ChIP-, ATAC- and bi
 -s Specie               | select the species, e.g., hg38, hg19, mm10, mm9, bosTau8, susScr11
 -h/--help               | Show this help message and exit
 
+## fastq file name:
+
+fastq file name should end with _R1_001.fastq.gz and _R2_001.fastq.gz you can following command to rename your fastq files
+
+**PE:**
+
+for i in *_1.fastq.gz; do   mv "$i" "`echo $i | sed "s/_1.fastq.gz/_R1_001.fastq.gz/"`"; done
+for i in *_2.fastq.gz; do   mv "$i" "`echo $i | sed "s/_2.fastq.gz/_R2_001.fastq.gz/"`"; done
+
+for i in *_1.fq.gz; do mv "$i" "$(echo $i | sed 's/_1.fq.gz/_R1_001.fastq.gz/')"; done
+for i in *_2.fq.gz; do mv "$i" "$(echo $i | sed 's/_2.fq.gz/_R2_001.fastq.gz/')"; done
+
+
+
+**SE:**
+
+for i in *gz; do   mv "$i" "`echo $i | sed "s/\.fastq.gz/_R1_001.fastq.gz/"`"; done
